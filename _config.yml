@@ -48,7 +48,7 @@ google_analytics:
 url: http://isultane.github.io
 
 # إذا كانت المدونة خاصة للصفحات المشاريع في GitHub (http://yourusername.github.io/repository-name مثلاً) عدل هذا المتغير ليطابق اسم المشروع
-baseurl: ""
+baseurl: "http://isultane.github.io/blog"
 
 
 #
