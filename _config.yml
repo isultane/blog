@@ -1,0 +1,11 @@
+# basic options
+title: My thoughts and tutorials
+author: Sultan S. Alqahtani
+email: to_sultan@yahoo.com
+description:This is my blog
+twitter_username: isultane
+github_username:  isultane
+
+# Build settings
+markdown: kramdown
+theme: minima
