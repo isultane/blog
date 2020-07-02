@@ -1,15 +1,15 @@
 ---
 layout: page
-title: About
+title: من أنا
+permalink: /about/
 ---
 
-This is an about page about this awesome site.
-Hope you love it!
+عرف عن نفسك، من أنت؟ وماذا تعمل؟
 
-Reasons:
-- its great.
-- its a test.
+### معلومات أخرى
 
-## Other thoughts
+هل لديك معلومات أخرى تريد مشاركتها؟
 
-This is great.
+### لمراسلتي
+
+[email@domain.com](mailto:email@domain.com)
