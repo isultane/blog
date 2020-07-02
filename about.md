@@ -1,11 +1,15 @@
 ---
 layout: page
-title: About
+title: من أنا
+permalink: /about/
 ---
 
-Comming soon!
-Hope you love it!
+عرف عن نفسك، من أنت؟ وماذا تعمل؟
 
-## Other thoughts
+### معلومات أخرى
 
-Anthing you want to know
+هل لديك معلومات أخرى تريد مشاركتها؟
+
+### لمراسلتي
+
+[email@domain.com](mailto:email@domain.com)
