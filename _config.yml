@@ -5,25 +5,26 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 
 footer-links:
   dribbble:
-  email: to_sultan@yahoo.com
+  email: 
   facebook:
   flickr:
   github: isultane
-  instagram: isultane
+  instagram: 
   linkedin:
   pinterest:
-  rss: # ضع أي قيمة هنا لتظهر أيقونة RSS
+  rss: rss
   twitter: isultane
   stackoverflow: # هويتك في stackoverflow مثلا: "users/50476/bart-kiers"
   youtube: # إما channel/<عنوان_قناتك_الطويل> أو user/<اسم-مستخدمك>
   googleplus: # رقم التعريف عندما تزور هويتك (كل ما يتبع plus.google.com/)
 # twitter_username: isutlane
 # github_username:  isultane
-
+url: https://isultane.github.io
+baseurl: "https://isultane.github.io/blog/"
 # Build settings
 # markdown: kramdown
 # theme: minima
-
+permalink: /:title/
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
@@ -33,3 +34,18 @@ kramdown:
   syntax_highlighter_opts:
     # Use existing pygments syntax highlighting css
     css_class: "highlight"
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :expanded # You might prefer to minify using :compressed
+# Use the following plug-ins
+gems:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
