@@ -17,6 +17,9 @@ footer-links:
   stackoverflow: # هويتك في stackoverflow مثلا: "users/50476/bart-kiers"
   youtube: # إما channel/<عنوان_قناتك_الطويل> أو user/<اسم-مستخدمك>
   googleplus: # رقم التعريف عندما تزور هويتك (كل ما يتبع plus.google.com/)
+
+google_analytics: UA-171645596-1
+
 # twitter_username: isutlane
 # github_username:  isultane
 url: https://isultane.github.io
