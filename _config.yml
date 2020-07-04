@@ -25,7 +25,7 @@ baseurl: "https://isultane.github.io/blog/"
 # markdown: kramdown
 # theme: minima
 # permalink: /:title/
-permalink: :pretty
+permalink: /:categories/:year/:month/:day/:title:output_ext
 
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
