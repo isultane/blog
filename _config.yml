@@ -25,6 +25,8 @@ baseurl: "https://isultane.github.io/blog/"
 # markdown: kramdown
 # theme: minima
 # permalink: /:title/
+permalink: :pretty
+
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
