@@ -20,7 +20,7 @@ footer-links:
 # twitter_username: isutlane
 # github_username:  isultane
 url: https://isultane.github.io
-baseurl: "https://isultane.github.io/blog/"
+baseurl: "https://isultane.github.io/blog"
 # Build settings
 # markdown: kramdown
 # theme: minima
