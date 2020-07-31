@@ -26,7 +26,8 @@ title: ماهو الـDocker ؟
  ومع تطور تطوير البرمجيات ومفاهيم هندسة البرمجيات  اصبح تطوير البرمجيات يحتاج عمل وجهد كبير جدا وأيضا التطبيقات المستهدفة ذات حجم كبير جدا وقد تحتوي على ما يسمى مايكرو سيرفيس (micro-services) وكل micro-service  يعمل على نسخه معينه عن الـmicro-service  الاخر وجميعها لابد ان يكونو على نفس الخادم, وهذا يخلق مشكله توافر النسخ المتعدده وتعارضها مع بعضا البعض لعدم وجود الـisolation  بينهم (او مانسميع بالعزل). 
  
  الحل لكل هذه المشاكل, هو الـ Containerisation. فمثلا كما هو مبين في الصورة التأليه, كل مكون من مكونات البرنامج عباره عن image  (صورة) فمثلا, الـjava  وجميع ما يتعلق بها من تقنيات (libraries, frameworks, etc.) انا احتاجها لبرمجة التطبيق معمول لها packaging  داخل هذه الـimage  وبنفس الطريقه لـMySQL ولـ redis, ولكي نعمل الان deployment  للتطبيق على الخادم فقط نحتاج الـDocker  محمل على السيرفر واللذي بدوره يقوم بتشغيل جميع الـ images  فقط من دون الاهتمام بأي تقنية كل image  تعمل وكيف تعمل ومال الى اخره. والسبب بأن الـ images  انشأ لها instances  وهذه الـinstances  تسمى الـcontainers وممكن ننشأ اكثر من instances  من image  وحده (مشابه لمفهوم الـobjects  من الـclass  في البرمجه الشيئية Object-oriented programming).  وبالتالي اصبح التطبيق بإمكانه العمل على الخادم بشكل فعال بحيث كل مكون من التطبيق عباره عن image  ومعزول عن الـ images  الأخرى في الخادم, وبالتالي لا اهتم بمشكله الـcompatibility التي ذكرتها سابقا.
-صورة 4
+
+![Docker]({{ site.baseurl }}/images/docker-post/img4.png)
 
 في نهاية المطاف, كل container الان في السيرفر يشترك في نفس الـkernel لنظام التشغيل الموجود على السيرفر مع الـcontainers  الأخرى. طبعا لكي يشتغل الـDocker  لابد ان يكون نظام التشغيل Linux, ولمن يتسأل ماذا عن الـWindows؟ نفس الطريقه ولاكن يحتاج تشتغل على Virtual Machine مثل VMware ومن ثم تعمل install  للـDocker. 
 
@@ -37,7 +38,7 @@ title: ماهو الـDocker ؟
 
 ولاكن في حالة الـContainerisation, لانحتاج نظام تشغيل لكل container مثل ماعملنا مع الـvirtualization, بل أن جميع الـcontainers تتشارك في نفس الـkernel المستخدم لنظام تشغيل الـserver. فقط نحتاج لنظام الـDocker كطبقه ترتيب المهام لعمل الـcontainers. 
 
-صورة 5
+![Docker]({{ site.baseurl }}/images/docker-post/img5.png)
 
 وكما هو واضح, الـvirtualization يحتاج resources كثير, لان كل نظام تشيغل في كل virtual box مثلا يحتاج إلى حيز في الذاكره, والمعالج والـhard drive, وهذا يستهلك وقت اكثر في عملية الـbooting (التشغيل). وكل هذه المشاكل نستطيع ان نقول ان الـ الـcontainerisation  تتغلب عليها, لاننا نعمل على ذاكره واحده, ونظام تشغيل واحد, وكذالك نستخدم او نتشارك في نفس الـresources, وبالتالي, سرعة الأداء وكفاءة العمل على الـDocker  تتفوق. 
 
@@ -54,7 +55,7 @@ title: ماهو الـDocker ؟
  2. REpresentation State Transfer Application Program Interface (REST API): الهدف الأساسي من الـREST API  في الـ Docker  هو توفير الية التخاطب  للطلبات المرسلة لـ Docker daemon وهي الـhttp requests  بين الـclients  و الـserver وتحديد الية التعامل معها. 
  3. Command line interface client (CLI): الـCLI  تستخدم الـDocker REST API للتحكم والتعامل مع الـDocker daemon من خلال الأوامر عن طريق الـcommand line او بإستخدام الـscripts. 
 
-صورة 6
+![Docker]({{ site.baseurl }}/images/docker-post/img6.png)
 
 لأكثر تفاصيل عن الـDocker architecture انصح بالرجوع إلى [Docker ِِArchitecture Documentation](https://docs.docker.com/get-started/overview/#docker-architecture).
  
@@ -62,18 +63,20 @@ title: ماهو الـDocker ؟
 
 ### ماهو الـDocker Hub 
 الـ[Docker Hub](http://hub.docker.com)  او ما يسمى بالـDocker registry  هو عباره عن مخزن كبير للـimages التي يتم صنعها من قبل المبرمجين والمطورين على الإنترنت ويتم مشاركتها للاستفادة منها. كل مطور برمجيات يستطيع ان ينشأ image ويعمل عليها بشكل locally ومن ثم يستطيع ان يضعها خاصه (private) لا يمكن الاطلاع عليها الا اشخاص معينين او عامه (public) يستطيع ان يستفيد أي شخص منها على الـDocker Hub, سوف نطلع على أمثله بالتفصيل لاحقا. 
-صورة 7
+
+![Docker]({{ site.baseurl }}/images/docker-post/img7.png)
 
 على نفس المنصة هناك شركات تتيح التطبيقات الخاصة بها على منصة Docker Hub بحيث لا يحتاج المطور ان يعمل configuration  لهذه التطبيقات كما يتم في الماضي. مثلا, MySQL من الصورة التالي نشاهد ان هذا التطبيق الان جاهز للإستخدام وكل مافي الأمر هو عمل امر pull  ومن ثم تشغيله على الجهاز والاستفادة منه في بناء قواعد البيانات اللتي احتاج اصممها للتطبيق الخاص بي. 
 
-صورة 8
+![Docker]({{ site.baseurl }}/images/docker-post/img8.png)
 
 أيضا نلاحظ بان انه يوضع علامة official image او verified publisher أي ان شركة MySQL  هي من وضعت هذه الـimage  وعليه يستطيع المستخدم ان يثق في التطبيق بعكس بعض التطبيقات التي قد تحتوي على مشاكل في الجودة او في الأمن. 
 
 #### مثال على استخدام الـDocker Hub عن طريق الـCLI
 لكي يتم استخدام نظام الـDocker  بالشكل الصيحيح, لابد ان يتم تحميل النظام وتتبع الخطوات من هذا الرابط: https://docs.docker.com/engine/install/
 بعد ان يتم انزال نظام الـDocker  على نظام Ubuntu  او اي اصدار من توزيعات Linux, تستطيع ان تتحقق بإستخدام الأمر `$docker --version` . 
-صورة 9
+
+![Docker]({{ site.baseurl }}/images/docker-post/img9.png)
 
 بعد ان تأكدنا بأن الـDocker  يعمل على الجهاز بالشكل الصحيح, نبدأ بعملية الربط عن طريق CLI  بمنصة الـDocker Hub باتباع الخطوات التاليه:
 
@@ -81,7 +84,7 @@ title: ماهو الـDocker ؟
     مرور). للتسجيل استخدم الرابط التالي: https://hub.docker.com/signup
  2. عن طريق الـterminal نقوم باستخدام الأمر `$docker login docker.io`  وسطلب الـusername  و الـpassword الخاصه بك على Docker hub. بعد ذلك ومن مجرد الحصور على Login Succeeded تعتبر الان متصل بجهازك المحلي بمنصة Docker Hub وجاهز لتحميل التطبيقات المساعده لمشروعك او ايضا تحميل او رفع التطبيقات الخاصه بك إلى المنصه.
 
-صورة 10
+![Docker]({{ site.baseurl }}/images/docker-post/img10.png)
 
 ### بناء الـDocker image 
 الـ Docker image نستطيع مقارنتها بـ git repository. استخدام الـgit  من الممكن استضافتها (hosting) على الـ GitHub او الـ Bitbucket اومن الممكن على استضافتها على private repository. بنفس المفهوم، نستطيع استضافة الـDocker image  على Docker repository service  وهو ما يسمى الـDocker Hub.
@@ -92,20 +95,24 @@ title: ماهو الـDocker ؟
 
 الدوكر في حالته العادية هو في الأساس مهيئ على استخدام منصة الدوكر كسجل افتراضي (default registry). بإمكانك تستخدم الأمر $docker info للاطلاع على السجل الذي يستخدمه Docker حاليا. بشكل افتراضي, ستلاحظ انه يشير إلى http://index.docker.io/v1/  وهو موقع السجل على منصة الدوكر (Docker hub).
 
-صورة 11
+![Docker]({{ site.baseurl }}/images/docker-post/img11.png)
 
 #### الصور الرسمية والغير رسميه (official images vs. non-official)
 على منصة الـDocker , هناك نوعين من الـimages – رسميه وغير رسمية كما ذكرنا سابقا. الـimage  الرسمية، هي عباره عن image موثوقة ومحسنة, ولديها توثيق وشرح مفصل (documentation)، وأيضا تتوفر على صفحتها على الـDocker hub امثله على كيفية الاستخدام, ومصممه بأن تكون للاستخدامات المتعددة الشاملة والمتعارف عليها. 
 
 في الجانب الأخر, الـimage  الغير رسميه, هي أي image أنشئت من قبل مستخدم عادي وليس شركه او منظمه برمجيه. وبالتالي, Docker لديه بعض المقاييس لكي يتم التمييز بين النوعين. فالـimage   الرسمية تحتوي على `<image_name>` كإسم للـimage, بينما الـimage  الغير رسميه تسميتها تكون بـ`<username>/<image_name>`. أيضا¸الصور الرسمية¸ يكتب امامها كلمة official كما هو مبين في المثال التالي:
 
-صوره 12
+![Docker]({{ site.baseurl }}/images/docker-post/img12.png)
+
 ### تحميل image  او pull image من منصة الـDocker
 #### استخدام البحث عن images على منصة الـDocker
 نستطيع ان نبحث ونجد صور على منصة الدوكر سواء بإستخدام محرك البحث على موقع المنصة او باستخدام الأمر التالي: `$docker search <image_name>`
 فلو اردنا ان نبحث عن الـimage  بإسم busybox  او Debian:
 
-صورة 13 و صورة 14
+![Docker]({{ site.baseurl }}/images/docker-post/img13.png)
+
+
+![Docker]({{ site.baseurl }}/images/docker-post/img14.png)
 
 كما هو واضح من شاشة الـterminal  جميع المعلومات المهمة عن الـimage اذا هي رسميه سيضاف لها [ok]  تحت عبارة official  وعدد الـstars  يدل على مدى شعبيتها وقابلية المستخدمين لها, وكذلك وصف بسيط للـimage. 
 
@@ -115,29 +122,30 @@ title: ماهو الـDocker ؟
 
  اذا الـtag غير متوفر, فإن محرك دوكر (docker engine) سيتخم :latest تاق كـtag افتراضي. مثلا, إذا اردنا ان نقوم بعمل pull او نسخ الـimage ذات الإصدار الأخير من نضام التشغيل الأخير debian نقوم بالتالي:
 
-
-صورة 15
+![Docker]({{ site.baseurl }}/images/docker-post/img15.png)
 
 ### انشاء Docker image
 نستطيع ان ننشأ الـimage الخاصه بتطبيقاتنا ونشرها على منصة Docker بطريقتين:
 #### بإستخدام Dockerfile لإنشاء image
 الـDockerfile هو عباره عن نص بسيط من مستند يحتوي على سلسله من الأوامر بحيث يقوم Docker باستخدامها لبناء الـimages. مجموعة الأوامر المدعومة في الـDockerfile هي FROM, CMD, ENTRYPOINT, VOLUM, ENV, والعديد منها . مثال بسيط على الـDockerfile كالتالي:
 
-صورة 16
+![Docker]({{ site.baseurl }}/images/docker-post/img16.png)
 
 **ملاحظه:** نقطه مهمه لنتذكرها وهي بأن الملف المخصص لصنع الـimage لابد بأن يكون اسمه Dockerfile. 
 أمر الـdocker build يستخدم لبناء الـimage من الـDockerfile. ولكي نقوم ببناء الـimage للملف اللذي صنعناه في المثال السابق  من الـDockerfile نستخدم الأمر التالي:
 
-صورة 17
+![Docker]({{ site.baseurl }}/images/docker-post/img17.png)
 
 طبعا هناك بعض الـparameters  مع كل امر (commands) نرجو الاطلاع عليها على [الرابط](https://docs.docker.com/engine/reference/commandline/cli/) .
 
 بعد ان تتم عملية البناء بالشكل الصحيح سيخرج بأن الـimage تم بناؤها بنجاح وعمل لها tag بإسم الـimage والإصدار. نستطيع ان نعمل تشغيل للحاويه (كما بينا سابقا الحاوية  او الـcontainer  هي عباره عن instance من الـimage)  وسوف نجد بأن المثال يقوم بطبعاة التاريخ كالتالي:
-صورة 18
+
+![Docker]({{ site.baseurl }}/images/docker-post/img18.png)
 
 #### انشاء image من container
 الطريقه الثانية لإنشاء image هي سحب docker image من منصة الـDocker Hub وانشاء حاوية منها ومن ثم عمل تعديل او تغيير عليها مثال ان نقوم بتحميل التطبيق الخاص بنا على تلك الحاويه. ومن ثم نستخدم الأمر docker commit لعمل انشاء docker commit من الحاويه. لنرى المثال التالي عن كيفية انشاء docker image من حاوية example_appChange it:
-صورة 19
+
+![Docker]({{ site.baseurl }}/images/docker-post/img19.png)
 
 فالأمر `$docker ps -a`  يبين ماهي الـcontainers  اللتي تعمل وعدد الـinstances  لكل image. فمثلا, قمت بصناعة 3 containers  من الـimage  docker_exmple_immage. 
 
@@ -148,20 +156,29 @@ title: ماهو الـDocker ؟
 
  1. تسجيل الدخول على الموقع.
  2. اختيار create repository كما هو مين في الصوره التالي:
-صورة 20
+
+![Docker]({{ site.baseurl }}/images/docker-post/img20.png)
 
  3. قم بإكمال البيانات الخاصه بالـrepository المراد انشاؤه, اسم المخزن example-image وهو اسم الـimage اللتي انشأناها مسبقا في الـDockerfile. تحدد خصاص المخزن عام او خاص (في الغالب عام افضل). واخيرا ننشاء المخزن بالضغط على زر create  كما هو موضح في الصورة التالية:
- صورة 21 وصورة 22
- 
+
+![Docker]({{ site.baseurl }}/images/docker-post/img21.png)
+
+![Docker]({{ site.baseurl }}/images/docker-post/img22.png)
+
 *الخطوة الثالثة:* عمل push للـimage  للـregistry  على المنصه كالتالي: 
 1.	نقوم بتسجيل الدخول على حساب الـdocker الخاص بنا عبر نافذة الأوامر CLI باستخدام الامر
  `$docker login`
 2.	نعمل tag للـimage. وهذي الخطوه مهمه جدا, قبل ان نقوم بعمل رفع للـimage على المخزن (repository). كما ذكرنا سابقا, بأن الدوكر يتبع سياسة تسميه لتحديد الـimage  الرسميه من غير الرسمية (official or not official). وما نقوم ببناءه هو  non official image. وبالتالي لابد ان يتم الالتزام بالتسمية الصحيحة على النحو التالي: `<username>/<image_name>:<tag_name>`. في كثير من الحالات نحتاج إلى اعادة التسمية كا `myusername/example_image:latest`.
-صورة 23
+
+![Docker]({{ site.baseurl }}/images/docker-post/img23.png)
+
 3.	نشر الـimage بعد عمل التاق لها إلى المخزن باستخدام الأمر `$docker push`
-صورة 24
+
+![Docker]({{ site.baseurl }}/images/docker-post/img24.png)
+
 بمجرد الانتهاء من الأمر, سنلاحظ بأن الـimage قد تم رفعها على منصة الـdocker بالوقت والتاريخ. هذا كل مافي الأمر, لقد تم بنجاح نشر أول صوره للتطبيق على الـdocker hub. لو اردت ان تقوم بإختبار الـimage, نستخدم الأوامر التالية وتفعيل التشغيل للحاوية  (container) كالتالي:
-صورة 25
+
+![Docker]({{ site.baseurl }}/images/docker-post/img25.png)
 
 ### 	الملخص
 في نهاية هذا الشرح, قدمنا ملخص مبسط عن اساسيات نظام الـDocker وأنه نظام يساعد مطوري البرمجيات على اختبار تطبيقاتهم ومشاركتها بشكل فعال مع الأخرين. وايضا تعرفنا على التعريفات الأساسية لمفاهم الـcontainerization  وفرقها عن الـvirtualization. كما اطلعنا على ما هو الـcontainer   ومما يتكون وكيفية عمله. ايضا تعلمنا كيفية انشاء الـimages  وعمل الـcontainers  على منصة الـDocker hub والأوامر الأساسية التي يستخدمها المبرمج او المطور للتعامل مع نظام الـDocker  ومنصة الـDocker hub. هناك تفاصيل كثيره قد لاتهم المستخدم العادي لنظام الـdocker  ومن أراد الاطلاع عليها على الرابط التالي: https://docs.docker.com/
