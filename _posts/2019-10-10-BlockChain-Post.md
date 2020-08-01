@@ -17,6 +17,7 @@ title: ماهو الـBlockChain؟
 
     String[] list1 = {"a", "b", "c"};
     String[] list2 = {"a", "b", "c"};
+    
 عباره قائمتن (two lists), القائمه الأولى (list1) تحتوي على "a", "b", "c" بينما القائمه الثانيه (list2) تحتوي على "a", "b", "c". محتوى القائمتين عباره عن بيانات وكل قائمه عباره عن بيانات خاصه بها لكن المحتوى متشابه. لو قمنا بصناعة Digital ID  خاص بها ماذا سيحدث؟ 
 
     String[] list1 = {"a", "b", "c"};
@@ -30,6 +31,7 @@ title: ماهو الـBlockChain؟
     String[] list2 = {"a", "b", "c"};
     System.out.println(Arrays.hashCode(list1));
     System.out.println(Arrays.hashCode(list2));
+   
 ستكون المخرجات مختلفه على النحو التالي:  126145 لـ list1  و 126642 لـ list2, فبالتالي إذا عملنا تغيير بسيط على أحد المحتويات في القئمتين الموضحه في المثال سوف نحصل على Digital signature  مختلف تماما عن السابق, وهذا هو الأساس المبني عليه تقنية الـBlockchain . 
 
 لأن الـ Blockchain هي عبارة عن قائمه (list) من الـ Blocks أو في الأساس سلسله (chain) من الـ Blocks  وكل Block  يحتوي على التالي: 1- مجموعه من الـ Transactions (العمليات اللتي تمت في هذا الـBlock ) و 2-Digital ID  أو Signature  خاص فيه و 3- Digital signature  خاص بالـ Block اللذي قبل.كما هو مبين في الصوره التاليه: 
