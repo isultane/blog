@@ -1,5 +1,5 @@
 ---
 layout: post
-title: ماهي تقنية الـSWIFT
+title: مقدمة مختصرة عن مفهوم نظام SWIFT
 ---
 ![DevOps]({{ site.baseurl }}/images/swift-post/img01.png)
